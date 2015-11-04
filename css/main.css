@@ -1,3 +1,5 @@
+* { box-sizing: border-box !important; }
+
 html {
     color: #222;
     font-size: 1em;
@@ -50,68 +52,231 @@ textarea {
 }
 
 /* ----------------------------------------------------------------
-   ----------------------------------------------------------------
+   ----- Baseline Styles ------------------------------------------
    ----------------------------------------------------------------
 */
 
-
-
 body { background: #298fce; }
 
-#container { max-width: 1020px; margin: 0 auto; background: #fff; }
+#container { max-width: 960px; min-height: 600px; margin: 0 auto; padding: 1em; background: #fff; }
+    #mt-tippyTop { width: 100%; height: 150px; background: #333; text-align: center; }
+    #mt-inlineBanner { width: 100%; text-align: center; }
+    #mt-leftRail { position: absolute; top: 180px; left: 50%; margin-left: -700px; }
+    #mt-rightRail { position: absolute; top: 180px; right: 50%; margin-right: -660px; }
 
-.header-container, .main-container, footer {  }
+.header, .main, footer {  }
 
 
-
-/* Random CSS thrown against the wall here */
-
-/*
-    We can easily have this class applied to simply enable animation with a few options here.
-    Other classes can dictate what the animation does.
+/* ----------------------------------------------------------------
+   ----- Animations -----------------------------------------------
+   ----------------------------------------------------------------
 */
 
 .mt-animated {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
-    /*
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.mt-infinite {
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
-    */
+}
+
+.mt-reverse {
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+/* ----------------------------------------------------------------
+   ----- Animations -----------------------------------------------
+   ----------------------------------------------------------------
+*/
+
+@-webkit-keyframes mtslideDown {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+    }
+
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+}
+
+@keyframes mtslideDown {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+    }
+
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+}
+
+.mt-slideDown {
+  -webkit-animation-name: mtslideDown;
+  animation-name: mtslideDown;
+}
+
+.mt-slideDown:hover {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
 }
 
 
+@-webkit-keyframes mtslideInLeft {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+    }
 
-/*  CSS Keyframe example */
-
-@-webkit-keyframes testingStuff {
-  0%   { opacity: 0.0; }
-  50%  { opacity: 0.5; }
-  100% { opacity: 1.0; }
-}
-@keyframes testingStuff {
-  0%   { opacity: 0.0; }
-  50%  { opacity: 0.5; }
-  100% { opacity: 1.0; }
-}
-
-.testingStuff {
-  -webkit-animation-name: testingStuff;
-  animation-name: testingStuff;
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
 }
 
+@keyframes mtslideInLeft {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+    }
 
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+}
+
+.mt-slideInLeft {
+  -webkit-animation-name: mtslideInLeft;
+  animation-name: mtslideInLeft;
+}
+
+
+@-webkit-keyframes mtslideInRight {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
+    }
+
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+}
+
+@keyframes mtslideInRight {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
+    }
+
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+}
+
+.mt-slideInRight {
+  -webkit-animation-name: mtslideInRight;
+  animation-name: mtslideInRight;
+}
+
+
+@-webkit-keyframes mtzoomIn {
+    from {
+      opacity: 0;
+      -webkit-transform: scale3d(0, 0, 0) translate3d(0, -1000px, 0);
+      transform: scale3d(0, 0, 0) translate3d(0, -1000px, 0);
+
+    }
+
+    50% {
+        opacity: 0;
+        -webkit-transform: scale3d(.5,.5,.5) translate3d(0, 60px, 0);
+        transform: scale3d(.5,.5,.5) translate3d(0, 60px, 0);
+    }
+
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+}
+
+@keyframes mtzoomIn {
+    from {
+      opacity: 0;
+      -webkit-transform: scale3d(0, 0, 0) translate3d(0, -1000px, 0);
+      transform: scale3d(0, 0, 0) translate3d(0, -1000px, 0);
+
+    }
+
+    50% {
+        opacity: 0;
+        -webkit-transform: scale3d(.5,.5,.5) translate3d(0, 60px, 0);
+        transform: scale3d(.5,.5,.5) translate3d(0, 60px, 0);
+    }
+
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+}
+
+.mt-zoomIn {
+  -webkit-animation-name: mtzoomIn;
+  animation-name: mtzoomIn;
+}
+
+
+@keyframes mtfadeIn {
+    from {
+      opacity: 0;
+
+    }
+
+    to {
+      opacity: 1;
+    }
+}
+
+.mt-fadeIn {
+  -webkit-animation-name: mtfadeIn;
+  animation-name: mtfadeIn;
+}
 
 
 /*
 
-    Random other useful things
+    TO DO
 
-    -webkit-transform: scale3d(0,0,0);
-    transform: scale3d(0,0,0);
+    Slide in left
+    Slide in right
+    Slide down
+    Fade In
+    Fade Out
+    Zoom In
+    Zoom Out
 
-    "rotate3d" is also a viable option
-
-    These scale and rotates to do not affect the surrounding DOM
-
+    https://davidwalsh.name/css-animation-callback
 */
