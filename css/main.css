@@ -48,3 +48,63 @@ textarea {
     color: #000;
     padding: 0.2em 0;
 }
+
+/* ----------------------------------------------------------------
+   ----------------------------------------------------------------
+   ----------------------------------------------------------------
+/*
+
+
+
+
+/* Random CSS thrown against the wall here */
+
+/*
+    We can easily have this class applied to simply enable animation with a few options here.
+    Other classes can dictate what the animation does.
+*/
+
+.mt-animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    /*
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    */
+}
+
+
+
+/*  CSS Keyframe example */
+
+@-webkit-keyframes testingStuff {
+  0%   { opacity: 0.0; }
+  50%  { opacity: 0.5; }
+  100% { opacity: 1.0; }
+}
+@keyframes testingStuff {
+  0%   { opacity: 0.0; }
+  50%  { opacity: 0.5; }
+  100% { opacity: 1.0; }
+}
+
+.testingStuff {
+  -webkit-animation-name: testingStuff;
+  animation-name: testingStuff;
+}
+
+
+
+
+/*
+
+    Random other useful things
+
+    -webkit-transform: scale3d(0,0,0);
+    transform: scale3d(0,0,0);
+
+    "rotate3d" is also a viable option
+
+    These scale and rotates to do not affect the surrounding DOM
+
+*/
