@@ -1,1 +1,1 @@
-# MT-Animated
+# MT Animated Banner Demo
