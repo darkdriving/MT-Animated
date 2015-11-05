@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html lang="">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -9,13 +9,8 @@
 
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
-
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
 
         <div id="mt-tippyTop" class="mt-animated mt-slideDown">
             <img src="http://www.fillmurray.com/960/150">
@@ -31,7 +26,7 @@
 
                 <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
 
-                <div id="mt-inlineBanner" class="mt-animated mt-zoomIn mt-reverse">
+                <div id="mt-inlineBanner" class="mt-animated mt-zoom">
                     <img src="http://www.fillmurray.com/900/100">
                 </div>
 
@@ -39,9 +34,7 @@
 
                 <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
 
-                <p><a href="#" id="removeClasses">Remove Classes</a>
-
-                <div id="mt-inlineBanner" class="mt-animated mt-fadeIn">
+                <div id="mt-inlineBanner" class="mt-animated mt-fade">
                     <img src="http://www.fillmurray.com/900/100">
                 </div>
 
@@ -49,12 +42,18 @@
             </div> <!-- #main-container -->
         </div>
 
-        <div id="mt-leftRail" class="mt-animated mt-slideInLeft mt-reverse">
+        <div id="mt-leftRail" class="mt-animated">
             <img src="http://www.fillmurray.com/200/400">
         </div>
 
-        <div id="mt-rightRail" class="mt-animated mt-slideInRight">
+        <div id="mt-rightRail" class="mt-animated mt-slideRight" style="-webkit-animation-duration: 5s; animation-duration: 5s; -webkit-animation-delay: 0s; animation-delay: 0s; -webkit-animation-iteration-count: 1; animation-iteration-count: 1;">
             <img src="http://www.fillmurray.com/160/300">
+            <a href="#" class="closeBanner" style="position: absolute; top: 10px; right: 10px; color: #fff; font-size: 2rem; text-decoration: none;">&times;</a>
+        </div>
+
+        <div id="mt-tippyBottom" class="mt-animated mt-slideUpAndOut" style="-webkit-animation-duration: 6s; animation-duration: 6s; -webkit-animation-delay: 0s; animation-delay: 0s; -webkit-animation-iteration-count: 1; animation-iteration-count: 1;">
+            <img src="http://www.fillmurray.com/960/100">
+            <a href="#" class="closeBanner" style="position: absolute; top: 10px; right: 10px; color: #fff; font-size: 2rem; text-decoration: none;">&times;</a>
         </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>

@@ -1,35 +1,26 @@
 $(function() {
 
     $('#removeClasses').click(function(){
-        $('#mt-leftRail').toggleClass('mt-reverse');
+        $('#mt-rightRail').toggleClass('mt-slideRight');
     });
 
-});
+    var myButton = $('.closeBanner'),
+    myBox = $('#mt-rightRail');
 
+    myBox.one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
+    function(e) {
+        $('#mt-rightRail').removeClass('mt-slideRight');
+    });
 
+    myButton.click(function () {
+        myBox.addClass('mt-slideRight mt-reverse');
+        myBox.one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
 
-/* From Modernizr */
-function whichTransitionEvent(){
-    var t;
-    var el = document.getElementById('mt-inlineBanner');
-    var transitions = {
-      'transition':'transitionend',
-      'OTransition':'oTransitionEnd',
-      'MozTransition':'transitionend',
-      'WebkitTransition':'webkitTransitionEnd'
-    }
+        function(e) {
+            $('#mt-tippyBottom').switchClass('mt-slideUpAndOut','mt-slideDown');
+        });
+    });
 
-    for(t in transitions){
-        if( el.style[t] !== undefined ){
-            return transitions[t];
-        }
-    }
-}
-
-/* Listen for a transition! */
-var transitionEvent = whichTransitionEvent();
-transitionEvent && e.addEventListener(transitionEvent, function() {
-	alert('Transition complete!  This is the callback, no library needed!');
 });
 
 /*
