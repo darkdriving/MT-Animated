@@ -1,0 +1,309 @@
+@import "settings";
+@import "foundation";
+@import "bourbon";
+
+
+body { background: #f5f5f5; }
+
+	header { background: #93b1c6; }
+
+	.example-orbit-content {
+		height: 500px;
+
+		li:first-child { @include linear-gradient(#F45C43, #EB3349); }
+		li:nth-child(2) { @include linear-gradient(#FF8008, #FFC837); }
+		li:nth-child(3) { @include linear-gradient(#5C258D, #4389A2); }
+
+		div {
+			padding-top: 3rem;
+			padding-bottom: 3rem;
+			color: #f0f0f0;
+
+			h2 { text-transform: uppercase; color: #f0f0f0; font-size: 3rem; font-weight: 300; margin-bottom: 0; }
+			h3 { color: #f0f0f0; margin-bottom: 2rem; font-weight: 300; }
+		}
+	}
+
+#mt-tippyTop { width: 100%; height: 150px; background: #111; text-align: center; position: relative; }
+#mt-leftRail {
+	position: absolute; top: 3em; left: 50%; margin-left: -720px;
+	a { left: 10px; right: auto; }
+}
+#mt-rightRail { position: absolute; top: 3em; right: 50%; margin-right: -680px; }
+#mt-rightRail2 { position: absolute; top: 280px; right: 50%; margin-right: -680px; }
+#mt-inlineBanner, #mt-inlineBannerZoom { width: 100%; height: 164px; position: relative; text-align: center; padding: 2rem 0; background: green; }
+
+#mt-leftArrow { position: absolute; top: 3em; left: 50%; margin-left: -720px; }
+
+
+.dismiss {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 3em;
+	color: #fff !important;
+	text-decoration: none;
+}
+
+#second-row { padding: 3em 0; margin-bottom: 1em; position: relative; }
+
+#third-row { position: relative; }
+
+#overall {
+	background: green;
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 1000;
+	width: 500px;
+	min-height: 400px;
+	padding: 20px;
+	text-align: center;
+	border: 5px solid #333;
+	box-shadow: 0 0 150px rgba(0,0,0,1);
+	transform: translate3d(-50%,-50%,0);
+	transition: background 1s ease;
+
+	#active, #paused { color: #fff; }
+
+	#paused { display: none; }
+}
+
+#overall:hover {
+	animation-play-state: paused;
+	background: red;
+
+	#active { display: none; }
+	#paused { display: block; }
+}
+
+
+/* ------------------------------------
+		Animation Holders
+------------------------------------ */
+
+.mtAnimated {
+    @include animation-duration(1s);
+		@include animation-timing-function(ease);
+		@include animation-fill-mode(both);
+}
+
+.mtInfinite {
+    @include animation-iteration-count(infinite);
+}
+
+.mtReverse {
+    @include animation-direction(reverse);
+    @include animation-duration(.5s !important);
+}
+
+
+/* ------------------------------------
+		Actual Animations
+------------------------------------ */
+
+
+@include keyframes(mtSlideDown) {
+    from {
+      opacity: 0;
+			max-height: 0;
+    }
+
+    to {
+      opacity: 1;
+      max-height: 150px;
+    }
+}
+
+.mtSlideDown {
+  @include animation-name(mtSlideDown);
+}
+
+
+@include keyframes(mtSlideUp) {
+    from {
+      opacity: 0;
+			@include transform(translate3d(0, -100%, 0))
+    }
+
+    to {
+      opacity: 1;
+      @include transform(none)
+    }
+}
+
+.mtSlideUp {
+  @include animation-name(mtSlideUp);
+}
+
+
+@include keyframes(mtSlideLeft) {
+    from {
+      opacity: 0;
+			@include transform(translate3d(-100%, 0, 0))
+    }
+
+    to {
+      opacity: 1;
+      @include transform(none)
+    }
+}
+
+.mtSlideLeft {
+  @include animation-name(mtSlideLeft);
+}
+
+
+@include keyframes(mtSlideRight) {
+    from {
+      opacity: 0;
+			@include transform(translate3d(100%, 0, 0))
+    }
+
+    to {
+      opacity: 1;
+      @include transform(none)
+    }
+}
+
+.mtSlideRight {
+  @include animation-name(mtSlideRight);
+}
+
+
+@include keyframes(mtFade) {
+    from {
+      opacity: 0;
+
+    }
+
+    to {
+      opacity: 1;
+    }
+}
+
+@include keyframes(mtFadeOut) {
+    from {
+      opacity: 1;
+			max-height: 150px;
+    }
+
+    to {
+      opacity: 0;
+			max-height: 0;
+    }
+}
+
+.mtFade {
+  @include animation-name(mtFade);
+}
+
+.mtFadeOut {
+  @include animation-name(mtFadeOut);
+}
+
+
+@include keyframes(mtZoom) {
+	from {
+		opacity: 0;
+		@include transform(scale3d(0,0,0) translate3d(0,-1000px,0));
+
+	}
+
+	50% {
+			opacity: .5;
+			@include transform(scale3d(.5,.5,.5) translate3d(0,60px,0));
+	}
+
+	to {
+		opacity: 1;
+		@include transform(none);
+	}
+}
+
+.mtZoom {
+  @include animation-name(mtZoom);
+}
+
+
+@include keyframes(mtTinyScale) {
+	from {
+		@include transform(scale3d(1, 1, 1));
+	}
+
+	50% {
+		@include transform(scale3d(1.1, 1.1, 1.1));
+	}
+
+	to {
+		@include transform(scale3d(1, 1, 1));
+	}
+}
+
+.mtTinyScale {
+  @include animation-name(mtTinyScale);
+}
+
+
+@include keyframes(mtColorRun) {
+	from {
+		background: red;
+	}
+
+	50% {
+		background: green;
+	}
+
+	to {
+		background: blue;
+	}
+}
+
+.mtColorRun {
+  @include animation-name(mtColorRun);
+}
+
+
+@include keyframes(mtCallout) {
+	from {
+		@include transform(translate3d(-100px,0,0) rotate(40deg));
+
+	}
+
+	100% {
+		@include transform(translate3d(30px,175px,0) rotate(1084deg));
+	}
+}
+
+.mtCallout {
+  @include animation-name(mtCallout);
+}
+
+
+
+@include keyframes(mtslideInOut) {
+    0% {
+      opacity: 0;
+			@include transform(translate3d(-50%,-250%,0));
+    }
+
+    10% {
+      opacity: 1;
+      @include transform(translate3d(-50%,-50%,0));
+    }
+
+    90% {
+      opacity: 1;
+      @include transform(translate3d(-50%,-50%,0));
+    }
+
+    100% {
+			opacity: 0;
+			@include transform(translate3d(-50%,-250%,0));
+    }
+}
+
+.mtslideInOut {
+  @include animation-name(mtslideInOut);;
+}
